@@ -102,9 +102,12 @@ function sum() {
   }
 
     ss.getCurrentCell().setFormula('= '+first+' + '+second+'');
+    var currentCell = ss.getCurrentCell();
+    ss.getSelection().getNextDataRange(SpreadsheetApp.Direction.DOWN).activate();
+    currentCell.activateAsCurrentCell();
+     ss.getCurrentCell().copyTo(ss.getActiveRange(), SpreadsheetApp.CopyPasteType.PASTE_NORMAL, false);
 
 }
-
 ```
 
 
@@ -116,6 +119,20 @@ function sum() {
   - Prompts the user to enter a value for the first cell and stores the input in the `first` variable. The user's response is captured if they click the "OK" button; otherwise, `first` remains unchanged.
   - Prompts the user to enter a value for the second cell and stores the input in the `second` variable in a similar manner.
   - Sets a formula in the currently selected cell in the spreadsheet. The formula calculates the sum of the values entered by the user in the first and second prompts.
+
+- **`ss`:** This variable represents the active spreadsheet. It's typically defined earlier in the script using a line similar to `var ss = SpreadsheetApp.getActive();`. `ss` is crucial because it specifies the spreadsheet the script should operate on.
+
+- **`getCurrentCell()`:** This method is called on the `ss` object. It retrieves the currently selected or active cell within the spreadsheet. In essence, it identifies the cell from which the copy operation originates.
+
+- **`copyTo(destination, copyPasteType, transposed)`:** This method is called on the cell obtained using `getCurrentCell()`. It facilitates the copy operation and pastes the content into a designated destination within the spreadsheet.
+
+  - **`destination`:** In this specific instance, it's `ss.getActiveRange()`. The `getActiveRange()` method retrieves the presently selected or active range (a group of cells) within the spreadsheet. So, `ss.getActiveRange()` signifies where the copied content will be pasted.
+
+  - **`copyPasteType`:** This parameter specifies the type of copy-paste operation to be executed. In the code, it's set to `SpreadsheetApp.CopyPasteType.PASTE_NORMAL`, indicating a standard paste operation. Such an operation retains the formatting and values of the copied content.
+
+  - **`transposed`:** This boolean value (true or false) determines whether the copied data should be transposed during the paste operation. Transposition involves switching rows and columns. In this code, it's set to `false`, meaning there is no transposition involved.
+
+In summary, this code line copies content from the currently selected cell in the active spreadsheet, then pastes it into the active range within the same spreadsheet. The operation is a normal paste, preserving formatting and values, and no transposition is applied.
 
 This script can be used to quickly perform addition in a Google Sheets document by prompting the user for the values to add and placing the result as a formula in the active cell.
 
