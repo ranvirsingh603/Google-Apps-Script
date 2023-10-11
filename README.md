@@ -28,10 +28,10 @@ That's it! You've successfully assigned the "Sarpt" script, which will run when 
 Now, you can add functionality to your Google Sheets using your custom script! 🚀
 
 # Google Apps Script - Custom Menu Creation
-
+First of all click on **Extensions** menu open **Apps Script**.
 The following code demonstrates how to create a custom menu in Google Sheets using Google Apps Script. This menu, named "Sum by Matharu," contains an item labeled "Sum," which is linked to the `sum` function. The code is designed to automatically execute when the Google Sheets document is opened.
 
-##Code for making custom menu
+## Code for making custom menu
 
 ```javascript
 function onOpen() {
