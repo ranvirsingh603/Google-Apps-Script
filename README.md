@@ -19,7 +19,7 @@ Begin by opening Google Sheets on your computer.
 1. Click on the Drawing icon you just created.
 2. In the top-right corner, click on the three dots (`...`).
 3. Choose **Assign Script** from the dropdown menu.
-4. Name your script; let's call it "Sarpt."
+4. Name your script; let's call it "onOpen()."
 <div style="float: right; padding-left: 20px;">
   <img src="https://github.com/ranvirsingh603/Google-Apps-Script/blob/main/Screenshot%202023-10-10%20105402.png" alt="Google Sheets Logo" height="150">
 </div> 
